@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SearchBox from './SearchBox';
 
 
 class App extends Component {
@@ -27,6 +28,16 @@ class App extends Component {
   render(){
   return (
     <div className="App">
+        <input className="search-box" type="search" placeholder="Search Monsters" onChange={(event)=>{console.log(event.target.value)
+        const filteredMonsters = this.state.monsters.filter((monster)=>{
+          const searchString = event.target.value.toLowerCase()
+           return monster.name.toLowerCase().includes(searchString)
+        })
+
+        this.setState(()=>{
+          return {monsters: filteredMonsters}
+        })
+        }}/>
       {this.state.monsters.map((monster)=>{
         return <h1 key={monster.name}>{monster.name}</h1>
       })}
