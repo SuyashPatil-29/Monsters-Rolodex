@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SearchBox from './components/search-box/searchBox';
 import CardList from './components/card-list/cardList';
@@ -43,6 +42,7 @@ class App extends Component {
 
   return (
     <div className="App">
+        <h1 className='app-title'>Monsters Rolodex</h1>
         <SearchBox className="search-box" type="search" placeholder="Search Monsters" onChange={onSearchChange}/>
         <CardList monsters={filteredMonsters} />
     </div>
